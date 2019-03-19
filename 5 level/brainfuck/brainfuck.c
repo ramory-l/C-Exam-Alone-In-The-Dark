@@ -24,7 +24,7 @@ int		ft_find_brackets(char *argv, int i)
 	return (0);
 }
 
-void	ft_memset(void *src, size_t size)
+void	ft_bzero(void *src, size_t size)
 {
 	size_t i;
 
@@ -45,7 +45,7 @@ void	brainfuck(char *argv)
 	i = 0;
 	j = 0;
 	str = (char *)malloc(sizeof(char) * 2048);
-	ft_memset(str, sizeof(str));
+	ft_bzero(str, sizeof(str));
 	while (argv[i])
 	{
 		if (argv[i] == '>')
@@ -62,6 +62,7 @@ void	brainfuck(char *argv)
 			i = ft_find_brackets(argv, i);
 		i++;
 	}
+	free(str);
 }
 
 int		main(int argc, char *argv[])
